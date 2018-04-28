@@ -259,8 +259,10 @@ func main() {
 		}
 		//log.Printf("combined out:\n%s\n", string(out))
 
-		url := "/git/" + token + "/download/" + sessionToken
-		render.Text(200, url+"\nlatex:"+string(outNote))
+		url := "http://latex.mbv.space/git/" + token + "/download/" + sessionToken
+		//render.Text(200, url+"\nlatex:"+string(outNote))
+
+		render.HTML(200, "latex", map[string]interface{}{"Token": token, "SessionToken": sessionToken, "Log": string(outNote), "Url": url})
 	})
 
 	m.Get("/git/:id/download/:session", func(params martini.Params, render render.Render, writer http.ResponseWriter, request *http.Request, log *log.Logger) {
