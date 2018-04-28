@@ -234,13 +234,14 @@ func main() {
 
 		// remove pdf
 
+		log.Println(latexDir)
 		log.Println(latexResultPath)
 
 		os.Remove(latexResultPath)
 
 		//render.Text(200, "cloned")
 
-		latexCmd := "docker run -v " + latexDir + ":/root/note/ terehovk/diploma-latex:0.1 /root/run.sh " + latexName
+		latexCmd := "docker run -v " + latexDir + "/:/root/note/ terehovk/diploma-latex:0.1 /root/run.sh " + latexName
 
 		cmdNote := exec.Command("/bin/sh", "-c", latexCmd)
 
