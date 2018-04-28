@@ -241,7 +241,7 @@ func main() {
 
 		//render.Text(200, "cloned")
 
-		latexCmd := "docker run -v " + latexDir + "/:/root/note/ terehovk/diploma-latex:0.3 /root/run.sh " + latexName + " /root/note"
+		latexCmd := "docker run -v " + latexDir + "/:/root/note/ terehovk/diploma-latex:0.4 /root/run.sh " + latexName + " /root/note"
 
 		log.Println(latexCmd)
 
@@ -361,8 +361,8 @@ func tryChangePreambleFont(pathDir string) {
 		return
 	}
 
-	var re = regexp.MustCompile(`(^|\n)\s*\\input{fonts_windows}.+\n`)
-	newString := "\n\\input{fonts_linux"
+	var re = regexp.MustCompile(`(^|\n)\s*\\input{fonts_linux}.+\n`)
+	newString := "\n\\input{fonts_windows}"
 	newData := re.ReplaceAll(data, []byte(newString))
 
 	ioutil.WriteFile(preambleFile, newData, fileInfo.Mode())
