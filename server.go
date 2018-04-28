@@ -147,7 +147,10 @@ func main() {
 			return
 		}
 		key := string(dat)
-		render.HTML(200, "git", map[string]interface{}{"Token": token, "Key": key})
+
+		cloneUrl := "http://latex.mbv.space/git/" + token + "/clone"
+
+		render.HTML(200, "git", map[string]interface{}{"Token": token, "Key": key, "CloneUrl": cloneUrl})
 	})
 
 	m.Post("/git/:id/clone", func(params martini.Params, render render.Render, request *http.Request, log *log.Logger) {
