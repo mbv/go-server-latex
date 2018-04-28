@@ -241,7 +241,7 @@ func main() {
 
 		//render.Text(200, "cloned")
 
-		latexCmd := "docker run -v " + latexDir + "/:/root/note/ terehovk/diploma-latex:0.2 /root/run.sh " + latexName + " /root/note"
+		latexCmd := "docker run -v " + latexDir + "/:/root/note/ terehovk/diploma-latex:0.3 /root/run.sh " + latexName + " /root/note"
 
 		log.Println(latexCmd)
 
