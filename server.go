@@ -243,6 +243,8 @@ func main() {
 
 		latexCmd := "docker run -v " + latexDir + "/:/root/note/ terehovk/diploma-latex:0.1 /root/run.sh " + latexName
 
+		log.Println(latexCmd)
+
 		cmdNote := exec.Command("/bin/sh", "-c", latexCmd)
 
 		outNote, err := cmdNote.CombinedOutput()
